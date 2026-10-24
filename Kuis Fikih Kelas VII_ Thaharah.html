@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kuis Fikih Kelas VII: Thaharah</title>
+<style>
+:root{--bg:#f2f8f6;--cd:#fff;--tx:#17302b;--mu:#5b716c;--pr:#0f766e;--ok:#15803d;--okb:#dcfce7;--no:#b91c1c;--nob:#fee2e2;--bd:#cfe0dc;--hv:#e6f2ef;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1917;--cd:#162623;--tx:#e6f1ee;--mu:#9bb3ad;--pr:#2dd4bf;--ok:#86efac;--okb:#12351f;--no:#fca5a5;--nob:#3b1717;--bd:#2a403b;--hv:#1d322e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1917;--cd:#162623;--tx:#e6f1ee;--mu:#9bb3ad;--pr:#2dd4bf;--ok:#86efac;--okb:#12351f;--no:#fca5a5;--nob:#3b1717;--bd:#2a403b;--hv:#1d322e;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.w{max-width:560px;margin:0 auto;padding:16px}
+h1{font-size:1.15rem;margin:4px 0 2px;color:var(--pr)}
+.sub{color:var(--mu);font-size:.85rem;margin:0 0 14px}
+.card{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:16px}
+.pb{height:8px;background:var(--hv);border-radius:99px;overflow:hidden;margin:6px 0 14px}
+#bar{height:100%;width:0;background:var(--pr);transition:width .3s}
+.top{display:flex;justify-content:space-between;font-size:.85rem;color:var(--mu)}
+.tag{background:var(--hv);color:var(--pr);padding:2px 10px;border-radius:99px;font-weight:600}
+#q{font-size:1.05rem;font-weight:600;margin:12px 0}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;font:inherit;color:var(--tx);background:var(--cd);border:2px solid var(--bd);border-radius:12px;padding:12px;margin:0 0 9px;cursor:pointer}
+.opt:hover:not(:disabled){background:var(--hv);border-color:var(--pr)}
+.opt:disabled{opacity:1;cursor:default}
+.opt .l{flex:none;width:26px;height:26px;border-radius:50%;background:var(--hv);color:var(--pr);display:grid;place-items:center;font-weight:700;font-size:.85rem}
+.opt.ok{background:var(--okb);border-color:var(--ok)}
+.opt.no{background:var(--nob);border-color:var(--no)}
+.fb{border-radius:12px;padding:12px;margin-top:6px;font-size:.93rem}
+.fb.gd{background:var(--okb)}.fb.bd{background:var(--nob)}
+.fb b{display:block;font-size:1rem;margin-bottom:4px}
+.fb small{display:block;margin-top:6px;color:var(--mu)}
+.btn{display:block;width:100%;margin-top:12px;padding:13px;font:inherit;font-weight:700;color:#fff;background:var(--pr);border:0;border-radius:12px;cursor:pointer}
+:root[data-theme="dark"] .btn,:root:not([data-theme="light"]) .btn{color:#06201c}
+.sc{font-size:3rem;font-weight:800;color:var(--pr);text-align:center;margin:0}
+.msg{text-align:center;margin:6px 0 12px}
+ul{padding-left:20px;margin:6px 0;font-size:.9rem}
+[hidden]{display:none!important}
+</style></head><body><div class="w">
+<h1>💧 Kuis Fikih Kelas VII: Thaharah</h1>
+<p class="sub">Berdasarkan Buku Siswa Fikih MTs Kelas VII, Bab 1–2 · 15 soal</p>
+<div id="quiz" class="card">
+<div class="top"><span id="cnt"></span><span class="tag" id="tag"></span></div>
+<div class="pb"><div id="bar"></div></div>
+<div id="q"></div><div id="ops"></div>
+<div id="fb" class="fb" hidden><b id="fh"></b><span id="fe"></span><small id="fp"></small></div>
+<button class="btn" id="nx" hidden></button>
+</div>
+<div id="res" class="card" hidden>
+<p class="sc" id="sc"></p><p class="msg" id="ms"></p>
+<div id="rv"></div>
+<button class="btn" id="rs">🔄 Ulangi kuis</button>
+</div></div>
+<script>
+const Q=[
+{q:"Menurut buku Fikih kelas VII, pernyataan yang tepat tentang thaharah (bersuci) adalah …",c:"Membersihkan diri, pakaian, dan tempat dari najis dan hadats dengan tata cara syariat; wajib dilakukan sebelum shalat dan tawaf",w:["Mandi agar badan bersih dan wangi, dilakukan hanya ketika badan tampak kotor","Hanya berwudhu; mandi dan tayamum bukan bagian dari thaharah","Hanya wajib bagi orang yang akan tawaf, tidak untuk shalat"],e:"Buku menyebut thaharah sebagai bersuci dari najis dan hadats sesuai aturan syariat. Setiap orang yang akan shalat dan tawaf wajib bersuci lebih dulu, misalnya dengan wudhu, tayamum, atau mandi. Allah juga menyukai orang yang menyucikan diri (QS. Al-Baqarah: 222).",p:"7–8"},
+{q:"Yang membedakan bersuci dengan sekadar membersihkan diri adalah …",c:"Bersuci disertai niat dan tata caranya diatur syariat melalui ketentuan fikih",w:["Bersuci tidak bertujuan membersihkan, hanya menjalankan perintah","Membersihkan diri wajib memakai niat, sedangkan bersuci tidak","Bersuci tidak ada hubungannya dengan pola hidup sehat"],e:"Menurut tabel di buku, bersuci memakai niat dan tata cara fikih, sedangkan membersihkan diri tidak. Kesimpulannya: bersuci pasti membersihkan diri, tetapi membersihkan diri belum tentu bersuci.",p:"7–8"},
+{q:"Air yang sah dipakai untuk bersuci (air suci dan mensucikan) adalah …",c:"Air hujan, air sungai, atau air laut yang bau, rasa, dan warnanya belum berubah",w:["Air kelapa, karena suci dan halal diminum","Air teh atau air kopi yang masih bersih","Air nira yang keluar dari pohon"],e:"Air mutlak (thahir muthahhir) masih murni dan boleh dipakai bersuci selama bau, rasa, dan warnanya belum berubah. Contohnya air hujan, mata air, laut, sungai, sumur, es/salju, dan embun.",p:"10–11"},
+{q:"Pasangan jenis air dan contohnya yang tepat adalah …",c:"Suci tetapi tidak mensucikan: air teh atau air nira",w:["Suci dan mensucikan: air kelapa","Suci dan mensucikan: air kopi","Mutanajjis: air sungai yang jernih"],e:"Air kelapa, nira, dan air suci yang tercampur benda suci lain (teh, kopi) halal diminum, tetapi tidak sah untuk bersuci karena tidak dapat menghilangkan hadats.",p:"11"},
+{q:"Pernyataan yang benar tentang air mutanajjis dan air musyammas adalah …",c:"Air mutanajjis tidak sah dipakai bersuci, sedangkan air musyammas makruh dipakai bersuci",w:["Air mutanajjis makruh dipakai bersuci, sedangkan air musyammas tidak sah","Keduanya haram digunakan untuk bersuci","Keduanya boleh dipakai bersuci tanpa ada hukum makruh"],e:"Air mutanajjis (berubah warna, bau, atau rasanya karena najis, atau kurang dari dua kulah yang terkena najis) tidak sah untuk bersuci. Air musyammas, yaitu air yang dijemur dan disimpan di wadah yang bisa berkarat (selain emas dan perak), makruh dipakai bersuci.",p:"11–13"},
+{q:"Perbedaan hadats kecil dan hadats besar yang benar adalah …",c:"Hadats kecil disucikan dengan wudhu (atau tayamum), hadats besar disucikan dengan mandi besar (atau tayamum bila berhalangan memakai air)",w:["Hadats kecil disucikan dengan mandi besar, hadats besar dengan wudhu","Keduanya cukup disucikan dengan memercikkan air","Hadats kecil tidak perlu disucikan sebelum shalat"],e:"Wudhu menyucikan hadats kecil, mandi besar (janabat) menyucikan hadats besar, dan tayamum menjadi pengganti saat berhalangan memakai air. Nabi saw. bersabda bahwa Allah tidak menerima shalat orang yang berhadats sampai ia berwudhu (HR. Bukhari no. 135 dan 6954, dari Abu Hurairah).",p:"34, 38"},
+{q:"Berikut ini yang merupakan penyebab hadats besar adalah …",c:"Keluarnya darah haidh atau nifas",w:["Buang air kecil","Buang angin","Menyentuh kemaluan tanpa alas"],e:"Menurut buku, hadats besar disebabkan keluarnya sperma (karena mimpi atau persetubuhan), persetubuhan meskipun tidak keluar sperma, haidh, dan nifas. Pilihan lainnya termasuk penyebab hadats kecil.",p:"38, 49"},
+{q:"Air kencing bayi laki-laki yang belum berusia dua tahun dan hanya minum ASI termasuk najis … dan cara menyucikannya …",c:"mukhaffafah (ringan); air dipercikkan pada bagian yang terkena sampai merata",w:["mutawassithah (sedang); air dialirkan sampai mengalir","mughaladhah (berat); dicuci tujuh kali, salah satunya dengan debu","mukhaffafah (ringan); dicuci tujuh kali dengan debu"],e:"Najis mukhaffafah cukup disucikan dengan memercikkan air; air tidak harus mengalir. Najis mutawassithah dialirkan air, sedangkan najis mughaladhah dicuci tujuh kali dengan salah satunya memakai debu.",p:"30, 32"},
+{q:"Urutan rukun wudhu yang benar menurut buku adalah …",c:"Niat, membasuh muka, membasuh kedua tangan sampai siku, mengusap sebagian kepala, membasuh kedua kaki sampai mata kaki, tertib",w:["Niat, membasuh kedua tangan sampai siku, membasuh muka, mengusap sebagian kepala, membasuh kedua kaki sampai mata kaki, tertib","Niat, membasuh muka, mengusap sebagian kepala, membasuh kedua tangan sampai siku, membasuh kedua kaki sampai mata kaki, tertib","Membasuh muka, membasuh kedua tangan sampai siku, mengusap sebagian kepala, membasuh kedua kaki sampai mata kaki, niat, tertib"],e:"Rukun wudhu ada 6. Niat dilakukan dalam hati bersamaan dengan membasuh muka, dan tertib berarti seluruh anggota wudhu dibasuh sesuai urutannya.",p:"36"},
+{q:"Yang termasuk sunnah wudhu (bukan rukun) menurut buku adalah …",c:"Membaca basmalah di awal wudhu",w:["Niat dalam hati","Membasuh kedua tangan sampai siku","Membasuh kedua kaki sampai mata kaki"],e:"Sunnah wudhu antara lain basmalah, berkumur, menghirup air ke hidung, mengusap seluruh kepala dan telinga, mendahulukan anggota kanan, dan berdoa setelah wudhu. Dikerjakan berpahala, ditinggalkan tidak berdosa. Pilihan lainnya adalah rukun wudhu.",p:"36–37"},
+{q:"Setelah berwudhu untuk shalat Zuhur, Reza buang angin saat menunggu iqamat. Apa yang sebaiknya ia lakukan?",c:"Berwudhu lagi, karena keluarnya sesuatu dari dubur membatalkan wudhu",w:["Tidak perlu apa-apa, wudhunya tetap sah karena tidak ada yang tahu","Cukup membasuh kedua kakinya","Mandi besar, karena buang angin termasuk hadats besar"],e:"Keluar sesuatu dari kubul atau dubur, termasuk buang angin, membatalkan wudhu. Itu hadats kecil yang disucikan dengan wudhu, bukan mandi besar.",p:"34, 36"},
+{q:"Fajar bangun tidur dan menemukan bekas cairan sperma di celananya karena mimpi basah. Waktu Subuh sudah masuk. Apa yang harus ia lakukan sebelum shalat?",c:"Mandi besar (mandi janabat) dengan niat menghilangkan hadats besar",w:["Cukup berwudhu","Cukup memercikkan air ke celananya","Langsung shalat karena ia tidak sedang haidh"],e:"Keluarnya sperma karena mimpi basah termasuk penyebab hadats besar. Mandi besar dimulai dengan niat bersamaan dengan siraman air pertama, lalu air diratakan ke seluruh tubuh tanpa terkecuali. Bila berhalangan memakai air, boleh diganti tayamum.",p:"38, 41"},
+{q:"Pakaian Dina terkena air liur anjing milik tetangga. Cara menyucikan yang tepat adalah …",c:"Menghilangkan wujud najisnya lebih dulu, lalu mencucinya dengan air bersih tujuh kali, salah satunya dicampur debu",w:["Cukup dipercik air sampai merata","Dicuci sekali dengan sabun sampai bersih","Dijemur sampai kering tanpa dicuci"],e:"Air liur anjing dan babi termasuk najis mughaladhah (berat), yang tidak cukup disucikan dengan air saja. Hilangkan wujudnya, cuci dengan air bersih tujuh kali, dan salah satunya dicampur debu.",p:"31, 33"},
+{q:"Celana Rafi terkena air kencing kakaknya yang sudah dewasa. Cara menyucikan yang tepat adalah …",c:"Menghilangkan warna, bau, dan rasanya lebih dulu, lalu menyiramkan air hingga mengalir ke bagian yang terkena",w:["Cukup dipercik air sampai merata tanpa mengalir","Dicuci tujuh kali, salah satunya dengan debu","Cukup dikeringkan di bawah sinar matahari"],e:"Najis yang keluar dari kubul dan dubur manusia (selain mani) tergolong mutawassithah. Sifatnya dihilangkan dulu, lalu air dialirkan hingga mengalir ke bagian yang terkena, kemudian dikeringkan.",p:"30–32"},
+{q:"Di musala sekolah, Ani berwudhu dengan kran yang dibiarkan mengalir deras sampai selesai, lalu kran ditinggal tanpa ditutup rapat. Penilaian yang paling tepat menurut buku adalah …",c:"Kurang tepat, karena bersuci harus tetap menjaga ketersediaan air bersih dan lingkungan; air jangan terbuang sia-sia",w:["Tepat, karena wudhu ibadah murni sehingga banyaknya air tidak perlu dipikirkan","Tepat, karena air bersih tidak akan pernah habis","Tepat, karena yang penting wudhunya sah dan air bukan urusan agama"],e:"Buku menyebut bersuci yang hanya dipandang sebagai ibadah murni tanpa peduli air terbuang sebagai tatharruf (melampaui batas). Prinsip tawazun mengajak kita taat sekaligus menjaga air dan lingkungan.",p:"16–18"}
+];
+const $=id=>document.getElementById(id);
+let i,sc,wr,pos,lock;
+function sh(a){a=a.slice();for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+function start(){i=0;sc=0;wr=[];pos=sh([0,0,0,0,1,1,1,1,2,2,2,2,3,3,3]);$("res").hidden=true;$("quiz").hidden=false;show()}
+function show(){
+const q=Q[i];lock=false;
+$("cnt").textContent="Soal "+(i+1)+" dari "+Q.length;
+$("tag").textContent=i<10?"Pemahaman":"Kasus sehari-hari";
+$("bar").style.width=(i/Q.length*100)+"%";
+$("q").textContent=q.q;$("fb").hidden=true;$("nx").hidden=true;
+const d=sh(q.w),box=$("ops");box.innerHTML="";let k=0;
+for(let s=0;s<4;s++){
+const t=s===pos[i]?q.c:d[k++],b=document.createElement("button");
+b.className="opt";b.dataset.ok=s===pos[i]?"1":"0";
+const l=document.createElement("span");l.className="l";l.textContent="ABCD"[s];
+const x=document.createElement("span");x.textContent=t;
+b.append(l,x);b.onclick=()=>pick(b);box.append(b)}
+}
+function pick(b){
+if(lock)return;lock=true;const q=Q[i],ok=b.dataset.ok==="1";
+document.querySelectorAll(".opt").forEach(o=>{o.disabled=true;if(o.dataset.ok==="1")o.classList.add("ok")});
+if(ok)sc++;else{b.classList.add("no");wr.push(i)}
+const f=$("fb");f.hidden=false;f.className="fb "+(ok?"gd":"bd");
+$("fh").textContent=ok?"✅ Benar!":"❌ Kurang tepat";
+$("fe").textContent=q.e;$("fp").textContent="Dasar: Buku Fikih MTs Kelas VII, hal. "+q.p;
+$("nx").textContent=i<Q.length-1?"Lanjut ➜":"Lihat hasil";$("nx").hidden=false;
+f.scrollIntoView({behavior:"smooth",block:"nearest"})}
+$("nx").onclick=()=>{i++;i<Q.length?show():end()};
+function end(){
+$("quiz").hidden=true;$("res").hidden=false;$("bar").style.width="100%";
+$("sc").textContent=sc+" / "+Q.length;
+$("ms").textContent=sc>=13?"Luar biasa! Kamu sudah sangat paham thaharah. 🌟":sc>=10?"Bagus! Tinggal sedikit lagi. Ulangi bagian yang masih keliru.":sc>=7?"Cukup baik. Baca lagi Bab 1–2 lalu coba lagi ya.":"Jangan menyerah! Pelajari lagi Bab 1–2, lalu ulangi kuis.";
+const r=$("rv");r.innerHTML="";
+if(wr.length){const p=document.createElement("p");p.textContent="Pelajari lagi:";r.append(p);const u=document.createElement("ul");
+wr.forEach(n=>{const li=document.createElement("li");li.textContent="Soal "+(n+1)+": buku hal. "+Q[n].p;u.append(li)});r.append(u)}
+window.scrollTo(0,0)}
+$("rs").onclick=start;
+start();
+</script></body></html>
